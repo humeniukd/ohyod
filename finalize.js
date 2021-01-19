@@ -34,15 +34,15 @@ exports.handler = async (event) => {
         }
       };
       const res = await documentClient.update(params).promise();
-      const { QueueUrl } = await sqs.getQueueUrl({
+      console.log('documentClient.update: ', res);
+      const { QueueUrl: QUrl } = await sqs.getQueueUrl({
         QueueName: `${key}.fifo`
       }).promise();
-      const dq = await sqs.deleteQueue({ QueueUrl }).promise();
-      console.log('Success: ', res);
+      const dq = await sqs.deleteQueue({ QueueUrl: QUrl }).promise();
+      console.log('deleteQueue: ', dq);
     }
-    if (Entries.length)
-      sqs.deleteMessageBatch({ Entries, QueueUrl }).promise();
-
+    const res = await sqs.deleteMessageBatch({ Entries, QueueUrl }).promise();
+    console.log('deleteMessageBatch: ', res);
   } catch (e) {
     console.log('Error: ', e);
   }
