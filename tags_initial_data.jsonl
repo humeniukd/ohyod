@@ -1,0 +1,225 @@
+POST _bulk
+{ "index" : { "_index" : "tags", "_id" : "1" } }
+{ "suggest" : "80s"}
+{ "index" : { "_index" : "tags", "_id" : "2" } }
+{ "suggest" : "Abstract"}
+{ "index" : { "_index" : "tags", "_id" : "3" } }
+{ "suggest" : "Acid Jazz"}
+{ "index" : { "_index" : "tags", "_id" : "4" } }
+{ "suggest" : "Acoustic Rock"}
+{ "index" : { "_index" : "tags", "_id" : "5" } }
+{ "suggest" : "Acoustic"}
+{ "index" : { "_index" : "tags", "_id" : "6" } }
+{ "suggest" : "African"}
+{ "index" : { "_index" : "tags", "_id" : "7" } }
+{ "suggest" : "Alternative"}
+{ "index" : { "_index" : "tags", "_id" : "8" } }
+{ "suggest" : "Ambient"}
+{ "index" : { "_index" : "tags", "_id" : "9" } }
+{ "suggest" : "Avantgarde"}
+{ "index" : { "_index" : "tags", "_id" : "10" } }
+{ "suggest" : "Bachata"}
+{ "index" : { "_index" : "tags", "_id" : "11" } }
+{ "suggest" : "Ballads"}
+{ "index" : { "_index" : "tags", "_id" : "12" } }
+{ "suggest" : "Bhangra"}
+{ "index" : { "_index" : "tags", "_id" : "13" } }
+{ "suggest" : "Blues Rock"}
+{ "index" : { "_index" : "tags", "_id" : "14" } }
+{ "suggest" : "Blues"}
+{ "index" : { "_index" : "tags", "_id" : "15" } }
+{ "suggest" : "Books"}
+{ "index" : { "_index" : "tags", "_id" : "16" } }
+{ "suggest" : "Bossa Nova"}
+{ "index" : { "_index" : "tags", "_id" : "17" } }
+{ "suggest" : "Breakbeats"}
+{ "index" : { "_index" : "tags", "_id" : "18" } }
+{ "suggest" : "Chanson"}
+{ "index" : { "_index" : "tags", "_id" : "19" } }
+{ "suggest" : "Chillout"}
+{ "index" : { "_index" : "tags", "_id" : "20" } }
+{ "suggest" : "Chiptunes"}
+{ "index" : { "_index" : "tags", "_id" : "21" } }
+{ "suggest" : "Choir"}
+{ "index" : { "_index" : "tags", "_id" : "22" } }
+{ "suggest" : "Classic Rock"}
+{ "index" : { "_index" : "tags", "_id" : "23" } }
+{ "suggest" : "Classical Guitar"}
+{ "index" : { "_index" : "tags", "_id" : "24" } }
+{ "suggest" : "Classical"}
+{ "index" : { "_index" : "tags", "_id" : "25" } }
+{ "suggest" : "Comedy"}
+{ "index" : { "_index" : "tags", "_id" : "26" } }
+{ "suggest" : "Contemporary"}
+{ "index" : { "_index" : "tags", "_id" : "27" } }
+{ "suggest" : "Country"}
+{ "index" : { "_index" : "tags", "_id" : "28" } }
+{ "suggest" : "Cumbia"}
+{ "index" : { "_index" : "tags", "_id" : "29" } }
+{ "suggest" : "Dance"}
+{ "index" : { "_index" : "tags", "_id" : "30" } }
+{ "suggest" : "Dancehall"}
+{ "index" : { "_index" : "tags", "_id" : "31" } }
+{ "suggest" : "Death Metal"}
+{ "index" : { "_index" : "tags", "_id" : "32" } }
+{ "suggest" : "Dirty South"}
+{ "index" : { "_index" : "tags", "_id" : "33" } }
+{ "suggest" : "Disco"}
+{ "index" : { "_index" : "tags", "_id" : "34" } }
+{ "suggest" : "Dream Pop"}
+{ "index" : { "_index" : "tags", "_id" : "35" } }
+{ "suggest" : "Drum & Bass"}
+{ "index" : { "_index" : "tags", "_id" : "36" } }
+{ "suggest" : "Dub"}
+{ "index" : { "_index" : "tags", "_id" : "37" } }
+{ "suggest" : "Dubstep"}
+{ "index" : { "_index" : "tags", "_id" : "38" } }
+{ "suggest" : "Easy Listening"}
+{ "index" : { "_index" : "tags", "_id" : "39" } }
+{ "suggest" : "Electro House"}
+{ "index" : { "_index" : "tags", "_id" : "40" } }
+{ "suggest" : "Electronic Pop"}
+{ "index" : { "_index" : "tags", "_id" : "41" } }
+{ "suggest" : "Electronic Rock"}
+{ "index" : { "_index" : "tags", "_id" : "42" } }
+{ "suggest" : "Electronic"}
+{ "index" : { "_index" : "tags", "_id" : "43" } }
+{ "suggest" : "Folk Rock"}
+{ "index" : { "_index" : "tags", "_id" : "44" } }
+{ "suggest" : "Folk"}
+{ "index" : { "_index" : "tags", "_id" : "45" } }
+{ "suggest" : "Funk"}
+{ "index" : { "_index" : "tags", "_id" : "46" } }
+{ "suggest" : "Glitch"}
+{ "index" : { "_index" : "tags", "_id" : "47" } }
+{ "suggest" : "Gospel"}
+{ "index" : { "_index" : "tags", "_id" : "48" } }
+{ "suggest" : "Grime"}
+{ "index" : { "_index" : "tags", "_id" : "49" } }
+{ "suggest" : "Grindcore"}
+{ "index" : { "_index" : "tags", "_id" : "50" } }
+{ "suggest" : "Grunge"}
+{ "index" : { "_index" : "tags", "_id" : "51" } }
+{ "suggest" : "Hard Rock"}
+{ "index" : { "_index" : "tags", "_id" : "52" } }
+{ "suggest" : "Hardcore"}
+{ "index" : { "_index" : "tags", "_id" : "53" } }
+{ "suggest" : "Heavy Metal"}
+{ "index" : { "_index" : "tags", "_id" : "54" } }
+{ "suggest" : "Hip-Hop"}
+{ "index" : { "_index" : "tags", "_id" : "55" } }
+{ "suggest" : "House"}
+{ "index" : { "_index" : "tags", "_id" : "56" } }
+{ "suggest" : "Indie Pop"}
+{ "index" : { "_index" : "tags", "_id" : "57" } }
+{ "suggest" : "Indie"}
+{ "index" : { "_index" : "tags", "_id" : "58" } }
+{ "suggest" : "Industrial Metal"}
+{ "index" : { "_index" : "tags", "_id" : "59" } }
+{ "suggest" : "Instrumental Rock"}
+{ "index" : { "_index" : "tags", "_id" : "60" } }
+{ "suggest" : "Instrumental"}
+{ "index" : { "_index" : "tags", "_id" : "61" } }
+{ "suggest" : "J-Pop" }
+{ "index" : { "_index" : "tags", "_id" : "62" } }
+{ "suggest" : "Jazz Funk"}
+{ "index" : { "_index" : "tags", "_id" : "63" } }
+{ "suggest" : "Jazz Fusion"}
+{ "index" : { "_index" : "tags", "_id" : "64" } }
+{ "suggest" : "Jazz"}
+{ "index" : { "_index" : "tags", "_id" : "65" } }
+{ "suggest" : "K-Pop"}
+{ "index" : { "_index" : "tags", "_id" : "66" } }
+{ "suggest" : "Latin Jazz"}
+{ "index" : { "_index" : "tags", "_id" : "67" } }
+{ "suggest" : "Latin"}
+{ "index" : { "_index" : "tags", "_id" : "68" } }
+{ "suggest" : "Learning"}
+{ "index" : { "_index" : "tags", "_id" : "69" } }
+{ "suggest" : "Mambo"}
+{ "index" : { "_index" : "tags", "_id" : "70" } }
+{ "suggest" : "Metalcore"}
+{ "index" : { "_index" : "tags", "_id" : "71" } }
+{ "suggest" : "Middle Eastern"}
+{ "index" : { "_index" : "tags", "_id" : "72" } }
+{ "suggest" : "Minimal"}
+{ "index" : { "_index" : "tags", "_id" : "73" } }
+{ "suggest" : "Modern Jazz"}
+{ "index" : { "_index" : "tags", "_id" : "74" } }
+{ "suggest" : "Moombahton"}
+{ "index" : { "_index" : "tags", "_id" : "75" } }
+{ "suggest" : "New Wave"}
+{ "index" : { "_index" : "tags", "_id" : "76" } }
+{ "suggest" : "News"}
+{ "index" : { "_index" : "tags", "_id" : "77" } }
+{ "suggest" : "Nu Jazz"}
+{ "index" : { "_index" : "tags", "_id" : "78" } }
+{ "suggest" : "Opera"}
+{ "index" : { "_index" : "tags", "_id" : "79" } }
+{ "suggest" : "Orchestral"}
+{ "index" : { "_index" : "tags", "_id" : "80" } }
+{ "suggest" : "Other"}
+{ "index" : { "_index" : "tags", "_id" : "81" } }
+{ "suggest" : "Piano"}
+{ "index" : { "_index" : "tags", "_id" : "82" } }
+{ "suggest" : "Pop"}
+{ "index" : { "_index" : "tags", "_id" : "83" } }
+{ "suggest" : "Post Hardcore"}
+{ "index" : { "_index" : "tags", "_id" : "84" } }
+{ "suggest" : "Post Rock"}
+{ "index" : { "_index" : "tags", "_id" : "85" } }
+{ "suggest" : "Progressive House"}
+{ "index" : { "_index" : "tags", "_id" : "86" } }
+{ "suggest" : "Progressive Metal"}
+{ "index" : { "_index" : "tags", "_id" : "87" } }
+{ "suggest" : "Progressive Rock"}
+{ "index" : { "_index" : "tags", "_id" : "88" } }
+{ "suggest" : "Punk"}
+{ "index" : { "_index" : "tags", "_id" : "89" } }
+{ "suggest" : "R&B"}
+{ "index" : { "_index" : "tags", "_id" : "90" } }
+{ "suggest" : "Rap"}
+{ "index" : { "_index" : "tags", "_id" : "91" } }
+{ "suggest" : "Reggae"}
+{ "index" : { "_index" : "tags", "_id" : "92" } }
+{ "suggest" : "Reggaeton"}
+{ "index" : { "_index" : "tags", "_id" : "93" } }
+{ "suggest" : "Riddim"}
+{ "index" : { "_index" : "tags", "_id" : "94" } }
+{ "suggest" : "Rock'n'Roll"}
+{ "index" : { "_index" : "tags", "_id" : "95" } }
+{ "suggest" : "Rock"}
+{ "index" : { "_index" : "tags", "_id" : "96" } }
+{ "suggest" : "Salsa"}
+{ "index" : { "_index" : "tags", "_id" : "97" } }
+{ "suggest" : "Samba"}
+{ "index" : { "_index" : "tags", "_id" : "98" } }
+{ "suggest" : "Shoegaze"}
+{ "index" : { "_index" : "tags", "_id" : "99" } }
+{ "suggest" : "Singer-Songwriter"}
+{ "index" : { "_index" : "tags", "_id" : "100" } }
+{ "suggest" : "Smooth Jazz"}
+{ "index" : { "_index" : "tags", "_id" : "101" } }
+{ "suggest" : "Soul"}
+{ "index" : { "_index" : "tags", "_id" : "102" } }
+{ "suggest" : "Sports"}
+{ "index" : { "_index" : "tags", "_id" : "103" } }
+{ "suggest" : "Story"}
+{ "index" : { "_index" : "tags", "_id" : "104" } }
+{ "suggest" : "Synth Pop"}
+{ "index" : { "_index" : "tags", "_id" : "105" } }
+{ "suggest" : "Tech House"}
+{ "index" : { "_index" : "tags", "_id" : "106" } }
+{ "suggest" : "Techno"}
+{ "index" : { "_index" : "tags", "_id" : "107" } }
+{ "suggest" : "Thrash Metal"}
+{ "index" : { "_index" : "tags", "_id" : "108" } }
+{ "suggest" : "Trance"}
+{ "index" : { "_index" : "tags", "_id" : "109" } }
+{ "suggest" : "Trap"}
+{ "index" : { "_index" : "tags", "_id" : "110" } }
+{ "suggest" : "Trip-hop"}
+{ "index" : { "_index" : "tags", "_id" : "111" } }
+{ "suggest" : "Turntablism"}
+{ "index" : { "_index" : "tags", "_id" : "112" } }
+{ "suggest" : "Underground"}

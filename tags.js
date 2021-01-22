@@ -1,7 +1,9 @@
 var AWS = require('aws-sdk');
 
-var region = process.env.AWS_REGION || 'eu-west-1';
+var region = process.env.AWS_REGION || 'eu-central-1';
 var domain = process.env.DOMAIN;
+var accessKeyId = process.env.KEY_ID;
+var secretAccessKey = process.env.SECRET_KEY;
 var index = 'tags';
 var type = '_search';
 
@@ -30,7 +32,7 @@ exports.handler = function ({ prefix }, context, callback) {
     request.headers['Content-Type'] = 'application/json';
     request.headers["Content-Length"] = request.body.length;
 
-    var credentials = new AWS.EnvironmentCredentials('AWS');
+    var credentials = new AWS.Credentials(accessKeyId, secretAccessKey);
     var signer = new AWS.Signers.V4(request, 'es');
     signer.addAuthorization(credentials, new Date());
 
