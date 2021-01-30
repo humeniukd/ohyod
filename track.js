@@ -1,5 +1,7 @@
 const AWS = require('aws-sdk');
 
+const region = process.env.AWS_REGION || 'eu-central-1';
+
 exports.handler = async (event) => {
     const {
         uid,
@@ -9,10 +11,8 @@ exports.handler = async (event) => {
         genre,
         tag_list,
         commentable
-    } = event.body;
-    if (event.id) {
+    } = event;
 
-    }
     const params = {
         TableName: 'tracks',
         Key: {id: uid},
@@ -34,12 +34,23 @@ exports.handler = async (event) => {
         params.UpdateExpression += ', tag_list = :h';
     }
 
-    const documentClient = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
+    const documentClient = new AWS.DynamoDB.DocumentClient({ region });
     try {
-        const res = documentClient.update(params).promise();
-        console.log('dsfge', res);
+        const res = await documentClient.update(params).promise();
+        console.log('Tracks: ', res);
         return res.Attributes;
     } catch (e) {
-        console.log('dsfge', e);
+        console.log('Tracks: ', e);
     }
 };
+
+
+exports.handler({
+    "uid": "872d21ea84f5c74119757357e48c6559",
+    "permalink": "asdf",
+    "title": "asdf",
+    "description": "",
+    "genre": "Rock",
+    "tag_list": [],
+    "commentable": true
+})

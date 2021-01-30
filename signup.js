@@ -2,7 +2,8 @@ const aws = require('aws-sdk');
 const http = require('https');
 const crypto = require("crypto");
 
-const BUCKET = process.env.BUCKET || 'hamedia';
+const BUCKET = process.env.BUCKET || 'loimg';
+const region = process.env.AWS_REGION || 'eu-central-1';
 
 function get(url, callback) {
     http.get(url, function(response) {
@@ -19,12 +20,12 @@ function parse(identities) {
         const data = JSON.parse(identities);
         const identity = data.length && data[0];
         const userId = identity.userId;
-        return `https://graph.facebook.com/v3.2/${userId}/picture`;
+        return `https://graph.facebook.com/v8.0/${userId}/picture`;
     }
 }
 
 exports.handler = function(event, context, callback) {
-    const ddb = new aws.DynamoDB({region: 'eu-west-1'});
+    const ddb = new aws.DynamoDB({ region });
     const s3 = new aws.S3();
     const uuid = crypto.randomBytes(16).toString("hex");
 
@@ -32,10 +33,10 @@ exports.handler = function(event, context, callback) {
         console.log(event.request.userAttributes);
 
         const {sub, given_name, family_name, name, email, picture, identities, 'cognito:user_status': status} = event.request.userAttributes;
-        let avatar = 'default.jpg';
+        let avatar = 'default.png';
         if (status === 'EXTERNAL_PROVIDER') {
             const url = picture || parse(identities);
-            avatar = sub+'.jpg';
+            avatar = uuid+'.jpg';
             get(url, (res) => {
                 if (200 !== res.statusCode) return;
                 const params = {
@@ -58,6 +59,7 @@ exports.handler = function(event, context, callback) {
                 'id' : {S: sub},
                 'email' : {S: email},
                 'avatar' : {S: avatar},
+                'permalink' : {S: `User-${sub.slice(24)}`},
                 'created_at': {S: (new Date()).toJSON()},
             }
         };
@@ -77,13 +79,3 @@ exports.handler = function(event, context, callback) {
     }
     callback(null, event);
 };
-
-exports.handler({request: {userAttributes:
-            { sub: '255a5fe9-de2d-43bc-b45c-33c1a48a2189',
-                identities: '[{"userId":"743089415786907","providerName":"Facebook","providerType":"Facebook","issuer":null,"primary":true,"dateCreated":1549671308716}]',
-                'cognito:user_status': 'EXTERNAL_PROVIDER',
-                name: 'John Done',
-                given_name: 'John',
-                family_name: 'Done',
-                email: 'dmitry.gumenyuk@gmail.com' }
-}}, {}, ()=>{});

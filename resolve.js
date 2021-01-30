@@ -1,10 +1,12 @@
 const AWS = require('aws-sdk');
 
+const region = process.env.AWS_REGION || 'eu-central-1';
+
 exports.handler = async (event) => {
-    const ddb = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
+    const ddb = new AWS.DynamoDB.DocumentClient({ region });
     const { permalinkUrl } = event;
     console.log('Permalink: ', permalinkUrl);
-    let params = {s
+    let params = {
         ExpressionAttributeValues: {
             ':p': permalinkUrl
         }
@@ -13,8 +15,8 @@ exports.handler = async (event) => {
         params = {
             ...params,
             TableName: 'tracks',
-            IndexName: 'permalink_url-index',
-            KeyConditionExpression: 'permalink_url = :p'
+            IndexName: 'permalink-index',
+            KeyConditionExpression: 'permalink = :p'
 
         }
     } else {

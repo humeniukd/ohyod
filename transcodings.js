@@ -1,15 +1,22 @@
 const aws = require('aws-sdk');
-const region = process.env.AWS_REGION || 'eu-central-1';
+const region = process.env.REGION || 'eu-central-1';
 
 exports.handler = async (event) => {
     console.log('Event: ', event);
     const ddb = new aws.DynamoDB.DocumentClient({ region });
+    const { Item: user } = await ddb.get({
+        TableName : 'users',
+        Key: {
+            id: event.user.id
+        }
+    }).promise()
     if (event.body && event.body.uid) {
         const params = {
             TableName: 'tracks',
             Item: {
                 id : event.body.uid,
                 user_id : event.user.id,
+                user,
                 playback_count: 0,
                 comments_count: 0,
                 sharing: 'public',
@@ -29,12 +36,11 @@ exports.handler = async (event) => {
                 QueueName: event.uid + '.fifo'
             }).promise();
             console.log('Queue: ', QueueUrl);
-
             const { Messages = [] } = await sqs.receiveMessage({
-                QueueUrl, MaxNumberOfMessages: 10
+                QueueUrl, MaxNumberOfMessages: 1
             }).promise();
 
-            if (!Messages.length) return; //TODO
+            if (!Messages.length) return {status: 'preparing'};
 
             const last = Messages[Messages.length - 1];
             const data = JSON.parse(last.Body);
@@ -43,7 +49,8 @@ exports.handler = async (event) => {
                 Entries.push({Id, ReceiptHandle})
 
             sqs.deleteMessageBatch({ Entries, QueueUrl }).promise();
-            if ('error' === data.type) return { status: 'failure' };
+            console.log('Message', data);
+            if ('error' === data.key) return { status: 'failure' };
             return {
                 status: 100 === data.value ? 'finished' : 'transcoding',
                 percentage: data.value
