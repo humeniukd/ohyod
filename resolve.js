@@ -4,14 +4,14 @@ const region = process.env.AWS_REGION || 'eu-central-1';
 
 exports.handler = async (event) => {
     const ddb = new AWS.DynamoDB.DocumentClient({ region });
-    const { permalinkUrl } = event;
-    console.log('Permalink: ', permalinkUrl);
+    const { permalinkUrl: permalink } = event;
+    console.log('Permalink: ', permalink);
     let params = {
         ExpressionAttributeValues: {
-            ':p': permalinkUrl
+            ':p': permalink
         }
     };
-    if (permalinkUrl.indexOf('/') > -1) {
+    if (permalink.indexOf('/') > -1) {
         params = {
             ...params,
             TableName: 'tracks',

@@ -8,10 +8,11 @@ exports.handler = async (event) => {
         permalink,
         title,
         description,
-        genre,
-        tag_list,
-        commentable
+        tags,
+        commentable = false
     } = event;
+
+    const [genre, ...tag_list] = tags
 
     const params = {
         TableName: 'tracks',
