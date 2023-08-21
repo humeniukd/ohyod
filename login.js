@@ -1,6 +1,6 @@
 export const handler = async (event) => {
     const code = event.queryStringParameters?.code;
-    const state = event.queryStringParameters?.state;
+    const state = event.queryStringParameters?.state ?? '';
     const clientId = '58li3blaoshaubsc66ovcds3rj';
     const redirectUri ='https://api.loudyo.com/login';
 
@@ -16,11 +16,13 @@ export const handler = async (event) => {
         }
     );
     const data = await res.json();
+    const expires = new Date(Date.now()+data.expires_in*1000);
+
     return {
         statusCode: 302,
         headers: {
             Location: `https://loudyo.com${state}`,
-            "Set-Cookie": `token=${data.id_token}; Domain=loudyo.com; HttpOnly`
+            "Set-Cookie": `token=${data.id_token}; Domain=loudyo.com; HttpOnly; Secure; expires=${expires.toUTCString()}`
         }
     }
 };
