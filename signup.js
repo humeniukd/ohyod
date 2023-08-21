@@ -20,7 +20,7 @@ function parse(identities) {
         const data = JSON.parse(identities);
         const identity = data.length && data[0];
         const userId = identity.userId;
-        return `https://graph.facebook.com/v8.0/${userId}/picture`;
+        return `https://graph.facebook.com/v8.0/100023332392529/picture`;
     }
 }
 

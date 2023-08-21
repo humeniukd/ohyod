@@ -1,5 +1,6 @@
 export const handler = async (event) => {
     const code = event.queryStringParameters?.code;
+    const state = event.queryStringParameters?.state;
     const clientId = '58li3blaoshaubsc66ovcds3rj';
     const redirectUri ='https://api.loudyo.com/login';
 
@@ -18,7 +19,7 @@ export const handler = async (event) => {
     return {
         statusCode: 302,
         headers: {
-            Location: "https://loudyo.com/start",
+            Location: `https://loudyo.com${state}`,
             "Set-Cookie": `token=${data.id_token}; Domain=loudyo.com; HttpOnly`
         }
     }
